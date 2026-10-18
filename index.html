@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samuel de Champlain — Father of New France</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1320;--bg2:#101c30;--ink:#f1e8d4;--mute:#a9b3c4;--gold:#d9a441;--red:#b8442f;--line:rgba(217,164,65,.25)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;line-height:1.7;overflow-x:hidden}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--red));z-index:99}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(217,164,65,.14),transparent 65%);transform:translate(-50%,-50%);z-index:0;left:50%;top:50%}
+h1,h2,.cin{font-family:'Cinzel',serif}
+section{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:14vh 6vw}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;max-width:none;
+background:radial-gradient(ellipse at 50% 120%,#1d3555 0%,transparent 60%)}
+.eyebrow{letter-spacing:.5em;text-transform:uppercase;color:var(--gold);font-size:.85rem;opacity:0;animation:fade 1.5s .2s forwards}
+h1{font-size:clamp(2.4rem,9vw,6.5rem);font-weight:800;line-height:1.05;margin:1.5rem 0}
+h1 .w{display:block;overflow:hidden;padding:.08em .1em}
+h1 .in-w{display:block;transform:translateY(110%) skewY(8deg);opacity:0;letter-spacing:.35em;
+animation:lineIn 1.4s cubic-bezier(.16,1,.3,1) forwards,shine 3.5s 1.8s linear infinite;
+background:linear-gradient(100deg,var(--gold) 35%,#fff7dc 50%,var(--gold) 65%) 200% 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .w:nth-child(2) .in-w{animation-delay:.25s,2.2s}
+@keyframes lineIn{to{transform:none;opacity:1;letter-spacing:0}}
+@keyframes shine{to{background-position:-100% 0}}
+@keyframes fade{to{opacity:1}}
+.type{min-height:2em;color:var(--mute);font-style:italic;font-size:1.5rem}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--gold);margin-left:3px;vertical-align:middle;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.scroll{position:absolute;bottom:4vh;font-size:.8rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;animation:bob 2s infinite}
+@keyframes bob{50%{transform:translateY(10px)}}
+/* HEADINGS */
+.tag{color:var(--gold);letter-spacing:.35em;font-size:.8rem;text-transform:uppercase;font-family:'Cinzel',serif}
+h2{font-size:clamp(1.8rem,5vw,3.2rem);margin:.4rem 0 1.5rem;position:relative;display:inline-block}
+h2::after{content:"";position:absolute;left:0;bottom:-8px;height:2px;width:0;background:var(--gold);transition:width 1.2s .3s}
+h2.in::after{width:100%}
+/* WORD REVEAL */
+.rv .wd{display:inline-block;opacity:0;transform:translateY(.7em);filter:blur(6px);transition:all .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*28ms)}
+.rv.in .wd{opacity:1;transform:none;filter:none}
+.reveal{opacity:0;transform:translateY(40px);transition:all 1s}
+.reveal.in{opacity:1;transform:none}
+/* FACT CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2rem}
+.card{background:linear-gradient(145deg,var(--bg2),#0d1727);border:1px solid var(--line);border-radius:14px;padding:1.5rem;transition:transform .4s,border-color .4s,box-shadow .4s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--gold);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.card small{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-family:'Cinzel',serif;font-size:.7rem}
+.card p{font-size:1.3rem;margin-top:.4rem;line-height:1.35}
+/* TIMELINE */
+.tl{border-left:2px solid var(--line);margin:2rem 0 0 .5rem;padding-left:2rem}
+.ev{position:relative;margin-bottom:2.2rem}
+.ev::before{content:"";position:absolute;left:calc(-2rem - 7px);top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(217,164,65,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 14px transparent}}
+.ev b{font-family:'Cinzel',serif;color:var(--gold);font-size:1.5rem}
+.stat{display:flex;gap:3rem;flex-wrap:wrap;margin-top:2.5rem}
+.stat div{font-family:'Cinzel',serif;font-size:3.2rem;color:var(--gold);line-height:1}
+.stat span{display:block;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--mute);margin-top:.4rem}
+/* QUOTE */
+.big{font-size:clamp(1.6rem,4.5vw,2.8rem);font-style:italic;line-height:1.3;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:2.5rem 0}
+.fun{text-align:center}
+.fun .scr{font-family:'Cinzel',serif;font-size:clamp(1.8rem,6vw,4rem);color:var(--gold);margin-top:1rem;min-height:1.3em}
+ul.src{list-style:none;margin-top:1rem}
+ul.src li{padding:.6rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+a{color:var(--gold);text-decoration:none;word-break:break-word;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 1px no-repeat;transition:background-size .4s}
+a:hover{background-size:100% 1px}
+footer{text-align:center;padding:4rem 1rem;color:var(--mute);font-size:.9rem;position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.in-w,.wd,.reveal,.eyebrow{opacity:1!important;transform:none!important;filter:none!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div><div id="glow"></div>
+
+<section class="hero">
+  <div class="eyebrow">Explorer Profile · 1604 – 1607</div>
+  <h1 id="title" aria-label="Samuel de Champlain"><span class="w">Samuel</span><span class="w">de Champlain</span></h1>
+  <div class="type"><span id="typed"></span><span class="caret"></span></div>
+  <div class="scroll">Scroll ↓</div>
+</section>
+
+<section>
+  <div class="tag reveal">01 · The Explorer</div>
+  <h2 class="scr-h">At a Glance</h2>
+  <div class="grid">
+    <div class="card reveal"><small>Explorer</small><p>Samuel de Champlain</p></div>
+    <div class="card reveal"><small>Born in</small><p>Hiers-Brouage, France</p></div>
+    <div class="card reveal"><small>Sponsored by</small><p>France</p></div>
+    <div class="card reveal"><small>Known as</small><p>Father of New France</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="tag reveal">02 · Why Explore?</div>
+  <h2 class="scr-h">Reasons for Exploring</h2>
+  <p class="rv">To enrich the empire by claiming new land and expanding its trade in fur with the Natives of Turtle Island. New territories could increase its reach and give traders access to more sources of valuable animal pelts. By collecting and selling fur, the empire hoped to bring in wealth and strengthen its control.</p>
+</section>
+
+<section>
+  <div class="tag reveal">03 · The Expedition</div>
+  <h2 class="scr-h">When, Where &amp; What?</h2>
+  <div class="stat reveal">
+    <div><span style="display:inline;font-size:inherit;color:inherit;font-family:inherit" class="count" data-to="1604">0</span><span>year he set out</span></div>
+    <div><span style="display:inline;font-size:inherit;color:inherit;font-family:inherit" class="count" data-to="1607">0</span><span>year the expedition ended</span></div>
+  </div>
+  <div class="tl">
+    <div class="ev reveal"><b>Arrival</b><p>Sailing from France under the French crown, he reached the Atlantic coast of present-day Nova Scotia and the Bay of Fundy region.</p></div>
+    <div class="ev reveal"><b>Port Royal</b><p>He co-founded Port Royal in Nova Scotia, one of the first European settlements in the region.</p></div>
+    <div class="ev reveal"><b>Mapping the coast</b><p>He mapped a section of the East Coast, charting harbours and rivers for future French trade.</p></div>
+    <div class="ev reveal"><b>A lake with his name</b><p>He was the first European to see the lake that would later bear his name, on the same day as its discovery.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="tag reveal">04 · Impressions</div>
+  <h2 class="scr-h">What Did He Think?</h2>
+  <p class="big rv">A land of massive economic, strategic and geographic potential — rather than one unified country.</p>
+  <p class="rv" style="margin-top:2rem">Champlain tried to integrate the people he met into European ways of life and to convert them to Catholic Christianity. He met many First Nations on his travels, and their knowledge of the land, rivers and trade routes shaped nearly everything he was able to do.</p>
+</section>
+
+<section>
+  <div class="tag reveal">05 · Relationships</div>
+  <h2 class="scr-h">First Nations &amp; Champlain</h2>
+  <p class="rv">Champlain used diplomacy and friendly words to win trust, because strong alliances meant secure access to furs. He built partnerships with several nations, but those partnerships served French goals, and his efforts to change Indigenous beliefs and ways of life had lasting consequences for the communities involved.</p>
+</section>
+
+<section class="fun">
+  <div class="tag reveal">★ Fun Fact</div>
+  <div class="scr" id="scr">FATHER OF NEW FRANCE</div>
+</section>
+
+<section>
+  <div class="tag reveal">Sources</div>
+  <h2 class="scr-h">Sources of Information</h2>
+  <ul class="src reveal">
+    <li><a href="https://www.britannica.com/biography/Samuel-de-Champlain" target="_blank" rel="noopener">Samuel de Champlain | Biography, Route, Accomplishments, &amp; Facts — Britannica</a></li>
+    <li><a href="https://www.historymuseum.ca/virtual-museum-of-new-france/the-explorers/samuel-de-champlain-1604-1616/" target="_blank" rel="noopener">Samuel de Champlain 1604–1616 — Virtual Museum of New France</a></li>
+    <li><a href="https://parks.canada.ca/lhn-nhs/qc/fortchambly/culture/histoire-history/site/samuel-de-champlain" target="_blank" rel="noopener">parks.canada.ca — Samuel de Champlain</a></li>
+  </ul>
+</section>
+<footer>Explorer project · Samuel de Champlain</footer>
+
+<script>
+// Hero title: letter-by-letter 3D blur-in
+document.querySelectorAll('#title .w').forEach(w=>{
+  const t=w.textContent;w.textContent='';
+  const s=document.createElement('span');s.className='in-w';s.textContent=t;w.appendChild(s);
+});
+// Typewriter
+const lines=['Father of New France','Mapmaker of the Atlantic coast','Co-founder of Port Royal','Seeker of the fur trade'];
+const el=document.getElementById('typed');let li=0,ci=0,del=false;
+(function tick(){const L=lines[li];ci+=del?-1:1;el.textContent=L.slice(0,ci);
+ let d=del?35:75;if(!del&&ci===L.length){d=1600;del=true}else if(del&&ci===0){del=false;li=(li+1)%lines.length;d=400}
+ setTimeout(tick,d)})();
+// Split paragraphs into words
+document.querySelectorAll('.rv').forEach(p=>{
+  const words=p.textContent.trim().split(/\s+/);p.textContent='';
+  words.forEach((w,i)=>{const s=document.createElement('span');s.className='wd';s.style.setProperty('--i',i);s.textContent=w;p.appendChild(s);p.appendChild(document.createTextNode(' '))});
+});
+// Scramble text
+const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function scramble(el){const final=el.dataset.t||(el.dataset.t=el.textContent);let f=0;
+ const id=setInterval(()=>{el.textContent=[...final].map((c,i)=>c===' '?' ':(i<f/2?c:chars[Math.random()*26|0])).join('');
+ if(++f>final.length*2+2){clearInterval(id);el.textContent=final}},35)}
+// Counters
+function count(el){const to=+el.dataset.to;const t0=performance.now();
+ (function s(t){const p=Math.min((t-t0)/1800,1);el.textContent=Math.round(to*(1-Math.pow(1-p,4)));if(p<1)requestAnimationFrame(s)})(t0)}
+// Observer
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+ const t=e.target;t.classList.add('in');
+ if(t.classList.contains('scr-h'))scramble(t);
+ if(t.id==='scr')scramble(t);
+ t.querySelectorAll&&t.querySelectorAll('.count').forEach(count);
+ io.unobserve(t)}),{threshold:.25});
+document.querySelectorAll('.reveal,.rv,.scr-h,#scr').forEach(e=>io.observe(e));
+document.querySelectorAll('.scr-h').forEach(h=>h.dataset.t=h.textContent);
+// Progress bar + cursor glow
+const bar=document.getElementById('bar'),glow=document.getElementById('glow');
+addEventListener('scroll',()=>{bar.style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+'%'});
+addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+</script>
+</body>
+</html>
